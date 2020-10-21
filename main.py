@@ -932,6 +932,7 @@ def display_page(pathname):
 #     else:
 #         return pageDefault
 
+server = app.server
 
 if __name__ == "__main__":
     app.run_server()
