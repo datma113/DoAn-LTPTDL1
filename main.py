@@ -415,9 +415,12 @@ df_compareAge2020_Pie_u18 = int(df_pop_london[['district', 'age',2020]].query('d
 df_compareAge2020_Pie_u60 = int(df_pop_london[['district', 'age',2020]].query('district == "London" and age < 60 and age >=18 ')[2020].sum())
 df_compareAge2020_Pie_u90 = int( df_pop_london[['district', 'age',2020]].query('district == "London"and age < 90 and age >=60 ')[2020].sum())
 
-pieType1Fig = px.pie(values=[df_compareAge2020_Pie_u18, df_compareAge2020_Pie_u60,df_compareAge2020_Pie_u90], names=['Trẻ em & vị thành niên', 'Người trưởng thành', 'người lớn tuổi'], title='Biểu đồ so sánh dân số 3 độ tuổi của thành phố london trong năm 2020 ')
 
-
+pieType1Fig = go.Figure(data=[go.Pie(labels=['Trẻ em & vị thành niên', 'Người trưởng thành', 'người lớn tuổi'], values=[df_compareAge2020_Pie_u18, df_compareAge2020_Pie_u60,df_compareAge2020_Pie_u90])])
+pieType1Fig.update_layout(
+    title_text="Biểu đồ so sánh dân số 3 độ tuổi của thành phố london trong năm 2020 ",
+    # Add annotations in the center of the donut pies.
+    )
 
 
 df_pop_westminster_2020  = int(df_pop_london[['district', 2020]].query('district == "Westminster"')[[2020]].sum())
