@@ -915,10 +915,10 @@ def display_page(pathname):
         return simpleChart
     elif pathname == '/line-chart':
         return lineChart
-    elif pathname =='/bar-chart':
-        return barChart
-    # elif pathname =='/pie-chart':
-    #     return pieChart
+    # elif pathname =='/bar-chart':
+    #     return barChart
+    elif pathname =='/pie-chart':
+        return pieChart
     # elif pathname =='/scatter-chart':
     #     return scatterChart
     # elif pathname =='/dot-chart':
