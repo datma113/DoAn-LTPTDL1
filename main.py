@@ -810,7 +810,7 @@ barChart = html.Div([
 #             ]),
 #             html.Div([
 #                  html.Span('Sử dụng khi nào?:', className='introMatplotlib'),
-#                 html.Span('Dot chart (biểu đồ chấm) sử dụng khi so sánh dữ liệu phân loại trong cùng một thời gian',className='content')
+#                 html.Span('Dot chart (biểu đồ chấm) sử dụng khi so sánh dữ liệu phân loại trong cùng một thời gian.',className='content')
 #             ]),
 #             html.Div([
 #                  html.Span('Type of Charts:', className='introMatplotlib')
