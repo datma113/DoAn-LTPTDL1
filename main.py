@@ -927,10 +927,6 @@ def display_page(pathname):
         return DataAnalysis
     else:
         return main
-    elif pathname == '/page2':
-        return page2
-    else:
-        return pageDefault
 
 server = app.server
 
