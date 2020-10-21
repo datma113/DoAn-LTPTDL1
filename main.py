@@ -270,8 +270,6 @@ df_male_london = pd.read_excel('./central_trend_2017_base.xlsx', sheet_name=1)
 df_female_london = pd.read_excel('./central_trend_2017_base.xlsx', sheet_name=2)
 
 
-df_male_london = pd.read_excel('C:/Users/84912/Downloads/central_trend_2017_base.xlsx', sheet_name=1)
-df_female_london = pd.read_excel('C:/Users/84912/Downloads/central_trend_2017_base.xlsx', sheet_name=2)
 df_bar_male = int(df_male_london[['district', 2020]].query('district == "London"')[[2020]].sum())
 df_bar_male1 = int(df_male_london[['district', 2021]].query('district == "London"')[[2021]].sum())
 df_bar_male2 = int(df_male_london[['district', 2022]].query('district == "London"')[[2022]].sum())
