@@ -3,6 +3,7 @@ chardet==3.0.4
 Click==7.0
 dash==0.35.0
 dash-core-components==0.41.0
+dash-bootstrap-components==0.10.7
 dash-html-components==0.13.4
 dash-renderer==0.16.1
 decorator==4.3.0
