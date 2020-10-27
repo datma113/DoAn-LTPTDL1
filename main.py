@@ -14,11 +14,9 @@ app.layout = html.Div([
 ])
 
 #####
-df_pop_london = pd.read_excel('./central_trend_2017_base.xlsx')
-df_pop_london_10y_later = df_pop_london[['district', 2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028,2029,2030]].query('district == "London"')
-london_y1, london_y2, london_y3, london_y4, london_y5, london_y6, london_y7, london_y8, london_y9, london_y10,london_y11  = df_pop_london_10y_later[2020].sum(),df_pop_london_10y_later[2021].sum(), df_pop_london_10y_later[2022].sum(), df_pop_london_10y_later[2023].sum(), df_pop_london_10y_later[2024].sum(), df_pop_london_10y_later[2025].sum(), df_pop_london_10y_later[2026].sum(), df_pop_london_10y_later[2027].sum(), df_pop_london_10y_later[2028].sum(), df_pop_london_10y_later[2029].sum(),df_pop_london_10y_later[2030].sum()
+
 arrLondonYear = np.arange(2020, 2031, 1)
-arrLondonPop = [london_y1, london_y2, london_y3, london_y4, london_y5, london_y6, london_y7, london_y8, london_y9, london_y10,london_y11]
+arrLondonPop =[9121350.691892669, 9211390.568916265, 9298979.218267485, 9384393.558697384, 9467486.974674778, 9548200.151854068, 9626818.379661608, 9703526.175359873, 9778659.788864529, 9852408.59922965, 9924970.290989427]
 # London_10_year_fig = px.line( x=arrLondonYear, y=arrLondonPop,title='Population of London 10 years later')
 
 #####
@@ -260,8 +258,6 @@ arr_3_city = ['Hackney','Haringey','London']
 go3city = go.Figure([go.Bar(x=arr_3_city, y=array_pop_city, marker_color=['red','green','blue'])])
 
 #type 2 chart
-df_male_london = pd.read_excel('./central_trend_2017_base.xlsx', sheet_name=1)
-df_female_london = pd.read_excel('./central_trend_2017_base.xlsx', sheet_name=2)
 
 years = np.arange(2020, 2032, 1)
 arr_bar_male = [
