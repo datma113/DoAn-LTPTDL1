@@ -395,8 +395,9 @@ barChart = html.Div([
 ##-----------------------------------------------------
 ## pie chart draw
 
-tuansuat_city_fig = px.pie( values=[0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353], names=['Sutton', 'Lewisham', 'Brent', 'Havering', 'Merton', 'Croydon', 'Southwark', 'Enfield', 'Redbridge', 'Camden', 'Westminster', 'Hammersmith and Fulham', 'Greenwich', 'Hackney', 'Hillingdon', 'Tower Hamlets', 'Newham', 'London', 'Richmond upon Thames', 'Kensington and Chelsea', 'Bexley', 'Barking and Dagenham', 'Islington', 'Lambeth', 'Wandsworth', 'Barnet', 'Ealing', 'Bromley', 'Kingston upon Thames', 'Haringey', 'City of London', 'Harrow', 'Hounslow', 'Waltham Forest'], title='Biều đồ tuần suất của các thành phố'
-)
+tuansuat_city_fig  = go.Figure(data=[go.Pie(labels=['Sutton', 'Lewisham', 'Brent', 'Havering', 'Merton', 'Croydon', 'Southwark', 'Enfield', 'Redbridge', 'Camden', 'Westminster', 'Hammersmith and Fulham', 'Greenwich', 'Hackney', 'Hillingdon', 'Tower Hamlets', 'Newham', 'London', 'Richmond upon Thames', 'Kensington and Chelsea', 'Bexley', 'Barking and Dagenham', 'Islington', 'Lambeth', 'Wandsworth', 'Barnet', 'Ealing', 'Bromley', 'Kingston upon Thames', 'Haringey', 'City of London', 'Harrow', 'Hounslow', 'Waltham Forest'], values=[0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353])])
+tuansuat_city_fig.update_layout(
+    title_text="Biều đồ tuần suất của các thành phố",)
 
 
 pieType1Fig = go.Figure(data=[go.Pie(labels=['Trẻ em & vị thành niên', 'Người trưởng thành', 'người lớn tuổi'], values=[2076150, 5548312,1443603])])
@@ -459,20 +460,20 @@ pieChart = html.Div([
                  html.Span('Type of Charts:', className='introMatplotlib'),
             ]),
               html.Div([
-                html.Div('Type 2:', className='col-3  line-chart'),
+                html.Div('Type 1:', className='col-3  line-chart'),
                 html.Div(
                     dcc.Graph(figure= tuansuat_city_fig), className='col-12'
                 )
             ], className='row'),
             html.Div([
-                html.Div('Type 1:', className='col-3  line-chart'),
+                html.Div('Type 2', className='col-3  line-chart'),
                 html.Div(
                     dcc.Graph(figure= pieType1Fig), className='col-12'
                 )
             ], className='row'),
 
             html.Div([
-                html.Div('Type 2:', className='col-3  line-chart'),
+                html.Div('Type 3:', className='col-3  line-chart'),
                 html.Div(
                     dcc.Graph(figure= compare_8_city_pie), className='col-12'
                 )
