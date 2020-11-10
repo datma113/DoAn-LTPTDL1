@@ -222,24 +222,40 @@ lineChart = html.Div([
             html.Div([
                  html.Span('Type of Charts:', className='introMatplotlib')
             ]),
-            html.Div([
+             html.Div([
                 html.Div('Type 1:', className='col-3  line-chart'),
+                html.Div(
+                    dcc.Graph(figure= {
+                        'data' : [
+                            { 'x': ['Sutton', 'Lewisham', 'Brent', 'Havering', 'Merton', 'Croydon', 'Southwark', 'Enfield', 'Redbridge', 'Camden', 'Westminster', 'Hammersmith and Fulham', 'Greenwich', 'Hackney', 'Hillingdon', 'Tower Hamlets', 'Newham', 'London', 'Richmond upon Thames', 'Kensington and Chelsea', 'Bexley', 'Barking and Dagenham', 'Islington', 'Lambeth', 'Wandsworth', 'Barnet', 'Ealing', 'Bromley', 'Kingston upon Thames', 'Haringey', 'City of London', 'Harrow', 'Hounslow', 'Waltham Forest'] , 'y': [2.941176470588235, 5.88235294117647, 8.823529411764707, 11.76470588235294, 14.705882352941178, 17.647058823529413, 20.588235294117645, 23.52941176470588, 26.47058823529412, 29.411764705882355, 32.35294117647059, 35.294117647058826, 38.23529411764706, 41.17647058823529, 44.11764705882353, 47.05882352941176, 50.0, 52.94117647058824, 55.88235294117647, 58.82352941176471, 61.76470588235294, 64.70588235294117, 67.64705882352942, 70.58823529411765, 73.52941176470588, 76.47058823529412, 79.41176470588235, 82.35294117647058, 85.29411764705883, 88.23529411764706, 91.17647058823529, 94.11764705882352, 97.05882352941177, 100.0], 'type' : 'line', 'name' : 'Line Chart'}
+                        ] ,
+                        'layout' : {
+                            'title' : 'Biểu đồ tần suất tích lũy của các thành phố',
+                            'xaxis' : { 'title': 'city' , 'tickangle' : 45},
+                            'yaxis' : { 'title': 'phần trăm tích lũy'}
+                        }
+                    }), className='col-12'
+                )
+            ], className='row'),
+            html.Div([
+                html.Div('Type 2:', className='col-3  line-chart'),
                 html.Div(
                     dcc.Graph(figure= {
                         'data' : [
                             { 'x': arrLondonYear , 'y': arrLondonPop, 'type' : 'line', 'name' : 'Line Chart'}
                         ] ,
                         'layout' : {
-                            'title' : 'Population of London 10 years later',
+                            'title' : 'Biểu đồ dự đoán dân số của thành phố London 10 năm sau',
                             'xaxis' : { 'title': 'year'},
-                            'yaxis' : { 'title': 'population'}
+                            'yaxis' : { 'title': 'population'},
+                           
                         }
                     }), className='col-12'
                 )
             ], className='row'),
 
              html.Div([
-                html.Div('Type 2:', className='col-3  line-chart'),
+                html.Div('Type 3:', className='col-3  line-chart'),
                 html.Div(
                     dcc.Graph(figure= lineChartType2), className='col-12'
                 )
@@ -252,10 +268,14 @@ lineChart = html.Div([
 
 # ##-----------------------------------------------------
 # # Bar Chart Link
-
-array_pop_city = [286180,280746,9121350]
-arr_3_city = ['Hackney','Haringey','London']
-go3city = go.Figure([go.Bar(x=arr_3_city, y=array_pop_city, marker_color=['red','green','blue'])])
+tansobar_fig = go.Figure(data=[go.Bar(
+    x=['Sutton', 'Lewisham', 'Brent', 'Havering', 'Merton', 'Croydon', 'Southwark', 'Enfield', 'Redbridge', 'Camden', 'Westminster', 'Hammersmith and Fulham', 'Greenwich', 'Hackney', 'Hillingdon', 'Tower Hamlets', 'Newham', 'London', 'Richmond upon Thames', 'Kensington and Chelsea', 'Bexley', 'Barking and Dagenham', 'Islington', 'Lambeth', 'Wandsworth', 'Barnet', 'Ealing', 'Bromley', 'Kingston upon Thames', 'Haringey', 'City of London', 'Harrow', 'Hounslow', 'Waltham Forest'],
+    y=[91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91],
+)])
+tansobar_fig.update_layout(
+    title_text="biểu đồ tần số của các thành phố",
+)
+tansobar_fig.update_layout(barmode='group', xaxis_tickangle=-45)
 
 #type 2 chart
 
@@ -355,7 +375,7 @@ barChart = html.Div([
             html.Div([
                 html.Div('Type 1:', className='col-3  line-chart'),
                 html.Div(
-                    dcc.Graph(figure= go3city), className='col-12'
+                    dcc.Graph(figure= tansobar_fig), className='col-12'
                 )
             ], className='row'),
 
@@ -375,6 +395,8 @@ barChart = html.Div([
 ##-----------------------------------------------------
 ## pie chart draw
 
+tuansuat_city_fig = px.pie( values=[0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353, 0.029411764705882353], names=['Sutton', 'Lewisham', 'Brent', 'Havering', 'Merton', 'Croydon', 'Southwark', 'Enfield', 'Redbridge', 'Camden', 'Westminster', 'Hammersmith and Fulham', 'Greenwich', 'Hackney', 'Hillingdon', 'Tower Hamlets', 'Newham', 'London', 'Richmond upon Thames', 'Kensington and Chelsea', 'Bexley', 'Barking and Dagenham', 'Islington', 'Lambeth', 'Wandsworth', 'Barnet', 'Ealing', 'Bromley', 'Kingston upon Thames', 'Haringey', 'City of London', 'Harrow', 'Hounslow', 'Waltham Forest'], title='Biều đồ tuần suất của các thành phố'
+)
 
 
 pieType1Fig = go.Figure(data=[go.Pie(labels=['Trẻ em & vị thành niên', 'Người trưởng thành', 'người lớn tuổi'], values=[2076150, 5548312,1443603])])
@@ -436,6 +458,12 @@ pieChart = html.Div([
             html.Div([
                  html.Span('Type of Charts:', className='introMatplotlib'),
             ]),
+              html.Div([
+                html.Div('Type 2:', className='col-3  line-chart'),
+                html.Div(
+                    dcc.Graph(figure= tuansuat_city_fig), className='col-12'
+                )
+            ], className='row'),
             html.Div([
                 html.Div('Type 1:', className='col-3  line-chart'),
                 html.Div(
@@ -443,13 +471,13 @@ pieChart = html.Div([
                 )
             ], className='row'),
 
-             html.Div([
+            html.Div([
                 html.Div('Type 2:', className='col-3  line-chart'),
                 html.Div(
                     dcc.Graph(figure= compare_8_city_pie), className='col-12'
                 )
             ], className='row'),
-            
+           
     
         ],className='col-8 matplotlib bg-light'),
     ], className = 'row cc')
