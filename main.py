@@ -62,7 +62,7 @@ main = html.Div([
             }),
             html.Div([
                 html.Div( [
-                    html.Div('- London population prediction (Dự đoán dân số london): nghiên cứu và dự đoán về sự gia tăng dân số của thành phố London (Anh - UK) cùng các vấn đề về dân số liên quan khác trong tương lai gần.'),
+                    html.Div('- London population prediction (Dự đoán dân số london): nghiên cứu và dự đoán về sự gia tăng dân số của thành phố London (Anh - UK) cùng các vấn đề về dân số liên quan khác trong năm 2020 và dự đoán dân số về những năm 2030.'),
                     html.Div('- Project này sử dụng Framework Dash - Plotly để xây dựng và dữ liệu được lấy từ trang data.world để phân tích')
                 ],className='col-8'),
                 html.Img(src='./assets/pop.jpg', className='col-4')
@@ -230,7 +230,7 @@ lineChart = html.Div([
                             { 'x': ['Sutton', 'Lewisham', 'Brent', 'Havering', 'Merton', 'Croydon', 'Southwark', 'Enfield', 'Redbridge', 'Camden', 'Westminster', 'Hammersmith and Fulham', 'Greenwich', 'Hackney', 'Hillingdon', 'Tower Hamlets', 'Newham', 'London', 'Richmond upon Thames', 'Kensington and Chelsea', 'Bexley', 'Barking and Dagenham', 'Islington', 'Lambeth', 'Wandsworth', 'Barnet', 'Ealing', 'Bromley', 'Kingston upon Thames', 'Haringey', 'City of London', 'Harrow', 'Hounslow', 'Waltham Forest'] , 'y': [2.941176470588235, 5.88235294117647, 8.823529411764707, 11.76470588235294, 14.705882352941178, 17.647058823529413, 20.588235294117645, 23.52941176470588, 26.47058823529412, 29.411764705882355, 32.35294117647059, 35.294117647058826, 38.23529411764706, 41.17647058823529, 44.11764705882353, 47.05882352941176, 50.0, 52.94117647058824, 55.88235294117647, 58.82352941176471, 61.76470588235294, 64.70588235294117, 67.64705882352942, 70.58823529411765, 73.52941176470588, 76.47058823529412, 79.41176470588235, 82.35294117647058, 85.29411764705883, 88.23529411764706, 91.17647058823529, 94.11764705882352, 97.05882352941177, 100.0], 'type' : 'line', 'name' : 'Line Chart'}
                         ] ,
                         'layout' : {
-                            'title' : 'Biểu đồ tần suất tích lũy của các thành phố',
+                            'title' : 'Biểu đồ tần suất tích lũy của các quận trong thành phố London',
                             'xaxis' : { 'title': 'city' , 'tickangle' : 45},
                             'yaxis' : { 'title': 'phần trăm tích lũy'}
                         }
@@ -273,7 +273,7 @@ tansobar_fig = go.Figure(data=[go.Bar(
     y=[91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91, 91],
 )])
 tansobar_fig.update_layout(
-    title_text="biểu đồ tần số của các thành phố",
+    title_text="biểu đồ tần số của các Quận trong thành phố London",
 )
 tansobar_fig.update_layout(barmode='group', xaxis_tickangle=-45)
 
@@ -402,17 +402,16 @@ tuansuat_city_fig.update_layout(
 
 pieType1Fig = go.Figure(data=[go.Pie(labels=['Trẻ em & vị thành niên', 'Người trưởng thành', 'người lớn tuổi'], values=[2076150, 5548312,1443603])])
 pieType1Fig.update_layout(
-    title_text="Biểu đồ so sánh dân số 3 độ tuổi của thành phố london trong năm 2020 ",
+    title_text="Biểu đồ so sánh dân số 3 độ tuổi của thành phố London trong năm 2020 ",
     # Add annotations in the center of the donut pies.
     )
-labels = ['Westminster','London','Wandsworth','Tower Hamlets','Havering','Waltham Forest','Hillingdon','Harrow']
-values = [252186, 9121350, 330812, 323916,265106,
-         285740,285740,313430,256598]
+labels = ['Redbridge', 'Westminster', 'City of London', 'Southwark', 'Brent', 'Hammersmith and Fulham', 'Barnet', 'Wandsworth', 'Ealing', 'Hounslow', 'Sutton', 'Newham', 'Islington', 'Kingston upon Thames', 'Barking and Dagenham', 'Enfield', 'Hillingdon', 'Lambeth', 'Haringey', 'Tower Hamlets', 'Croydon', 'Waltham Forest', 'Hackney', 'Havering', 'Harrow', 'Bexley', 'Lewisham', 'Kensington and Chelsea', 'Richmond upon Thames', 'Greenwich', 'Bromley', 'Merton', 'Camden']
+values = [314637, 252186, 7544, 324445, 339690, 187639, 402424, 330812, 352509, 278253, 210359, 363484, 241462, 180838, 221719, 343804, 313430, 331353, 280746, 323916, 395866, 285740, 286180, 265106, 256598, 252772, 312153, 158643, 201177, 291611, 339621, 213048, 261571]
 
 # Use `hole` to create a donut-like pie chart
-compare_8_city_pie = go.Figure(data=[go.Pie(labels=labels, values=values,title='population' , hole=.5, pull=[0, 0.2, 0, 0,0])])
+compare_8_city_pie = go.Figure(data=[go.Pie(labels=labels, values=values,title='population' , hole=.5, pull=[0, 0, 0, 0, 0, 0, 0.3, 0, 0, 0, 0, 0.3, 0, 0, 0, 0, 0, 0, 0, 0, 0.3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])])
 compare_8_city_pie.update_layout(
-    title_text="So sánh các thành phố xung quanh london",
+    title_text="Biểu đồ thống kê dân số các quận của thành phố London trong năm 2020",
     # Add annotations in the center of the donut pies.
     )
 ##-----------------------------------------------------
@@ -514,17 +513,12 @@ scatterWithoutLondon = go.Figure(data=go.Scatter(x=['City of London','Barking an
                                   'Newham','Redbridge','Richmond upon Thames','Southwark','Tower Hamlets','Sutton'
                                    ,'Waltham Forest','Wandsworth','Westminster'])) # hover text goes here
 
-scatterWithoutLondon.update_layout(title='Dân số tất cả thành phố trừ London')
+scatterWithoutLondon.update_layout(title='Dân số tất cả các quận của thành phố London năm 2020',xaxis_tickangle=-45)
 
-yScatter_HaveLondon =[7544, 221719, 402424, 252772, 339690, 339621, 261571, 395866, 352509, 343804, 291611, 187639, 280746, 256598, 265106, 313430, 278253, 241462, 
-158643, 180838, 331353, 312153, 213048, 363484, 314637, 201177, 324445, 323916, 210359, 285740, 330812, 252186, 9121350]
 
-yScatter_HaveLondon = go.Figure(data=go.Scatter(x=['City of London','Barking and Dagenham','Barnet','Bexley','Brent','Bromley','Camden',
-                                   'Croydon','Ealing','Enfield','Greenwich','Hammersmith and Fulham','Haringey','Harrow','Havering',
-                                   'Hillingdon','Hounslow','Islington','Kensington and Chelsea','Kingston upon Thames','Lambeth',
-                                   'Lewisham','Merton',
-                                  'Newham','Redbridge','Richmond upon Thames','Southwark','Tower Hamlets','Sutton'
-                                   ,'Waltham Forest','Wandsworth','Westminster','london'],
+yScatter_HaveLondon =[352022, 269730, 7430, 350704, 366890, 197900, 442915, 350403, 377199, 301622, 230223, 401373, 261587, 198110, 251587, 376525, 343850, 351596, 303969, 362226, 429083, 312924, 313487, 295467, 277815, 274629, 341918, 165693, 215244, 318644, 370020, 229688, 282479]
+
+yScatter_HaveLondon = go.Figure(data=go.Scatter(x=['Redbridge', 'Westminster', 'City of London', 'Southwark', 'Brent', 'Hammersmith and Fulham', 'Barnet', 'Wandsworth', 'Ealing', 'Hounslow', 'Sutton', 'Newham', 'Islington', 'Kingston upon Thames', 'Barking and Dagenham', 'Enfield', 'Hillingdon', 'Lambeth', 'Haringey', 'Tower Hamlets', 'Croydon', 'Waltham Forest', 'Hackney', 'Havering', 'Harrow', 'Bexley', 'Lewisham', 'Kensington and Chelsea', 'Richmond upon Thames', 'Greenwich', 'Bromley', 'Merton', 'Camden'],
                                 y=yScatter_HaveLondon,
                                 mode='markers',
                                 marker_color=yScatter_HaveLondon,                              
@@ -535,7 +529,7 @@ yScatter_HaveLondon = go.Figure(data=go.Scatter(x=['City of London','Barking and
                                   'Newham','Redbridge','Richmond upon Thames','Southwark','Tower Hamlets','Sutton'
                                    ,'Waltham Forest','Wandsworth','Westminster','london'])) # hover text goes here
 
-yScatter_HaveLondon.update_layout(title='Dân số tất cả thành phố trong bộ dữ liệu')
+yScatter_HaveLondon.update_layout(title='Dân số tất cả quận trong thành phố London năm 2030',xaxis_tickangle=-45)
 
 
 
@@ -756,7 +750,7 @@ DataAnalysis = html.Div([
                  html.Div('international_out: xuất cư',className='content'),
                  html.Div('domestic_in: trong nước',className='content'),
                  html.Div('domestic_out: ngoài nước',className='content'),
-                 html.Div('district: thành phố',className='content'),
+                 html.Div('district: Quận trong thành phố london',className='content'),
                  html.Div('sex: giới tính',className='content'),
                  html.Div('age: tuổi',className='content'),
                  html.Div('2010, 2011,... 2050: các năm dự đoán',className='content'),     
